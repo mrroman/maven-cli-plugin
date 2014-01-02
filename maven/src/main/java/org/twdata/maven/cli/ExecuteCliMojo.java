@@ -61,12 +61,14 @@ public class ExecuteCliMojo extends AbstractCliMojo {
             {
                 return execEnv;
             }
+            else 
+            {
+                return MojoExecutor.executionEnvironment(project, session, (BuildPluginManager) buildPluginManager);
+            }
         }
         catch (Exception e)
         {
-           // e.printStackTrace();
+            throw new RuntimeException(e);
         }
-
-        return MojoExecutor.executionEnvironment(project, session, pluginManager);
     }
 }
